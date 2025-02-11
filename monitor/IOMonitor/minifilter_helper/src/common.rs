@@ -1,0 +1,203 @@
+use core::str::FromStr;
+
+#[allow(non_camel_case_types)]
+#[derive(Debug, Clone, Copy, Eq, PartialEq)]
+pub enum OperationType {
+    OP_NOTHING,
+    // add this for setting default value
+    IRP_MJ_CREATE,
+    IRP_MJ_CREATE_NAMED_PIPE,
+    IRP_MJ_CLOSE,
+    IRP_MJ_READ,
+    IRP_MJ_WRITE,
+    IRP_MJ_QUERY_INFORMATION,
+    IRP_MJ_SET_INFORMATION,
+    IRP_MJ_QUERY_EA,
+    IRP_MJ_SET_EA,
+    IRP_MJ_FLUSH_BUFFERS,
+    IRP_MJ_QUERY_VOLUME_INFORMATION,
+    IRP_MJ_SET_VOLUME_INFORMATION,
+    IRP_MJ_DIRECTORY_CONTROL,
+    IRP_MJ_FILE_SYSTEM_CONTROL,
+    IRP_MJ_DEVICE_CONTROL,
+    IRP_MJ_INTERNAL_DEVICE_CONTROL,
+    IRP_MJ_SHUTDOWN,
+    IRP_MJ_LOCK_CONTROL,
+    IRP_MJ_CLEANUP,
+    IRP_MJ_CREATE_MAILSLOT,
+    IRP_MJ_QUERY_SECURITY,
+    IRP_MJ_SET_SECURITY,
+    IRP_MJ_POWER,
+    IRP_MJ_SYSTEM_CONTROL,
+    IRP_MJ_DEVICE_CHANGE,
+    IRP_MJ_QUERY_QUOTA,
+    IRP_MJ_SET_QUOTA,
+    IRP_MJ_PNP,
+    IRP_MJ_PNP_POWER,
+    IRP_MJ_MAXIMUM_FUNCTION,
+    IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION,
+    IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION,
+    IRP_MJ_ACQUIRE_FOR_MOD_WRITE,
+    IRP_MJ_RELEASE_FOR_MOD_WRITE,
+    IRP_MJ_ACQUIRE_FOR_CC_FLUSH,
+    IRP_MJ_RELEASE_FOR_CC_FLUSH,
+    IRP_MJ_QUERY_OPEN,
+    IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE,
+    IRP_MJ_NETWORK_QUERY_OPEN,
+    IRP_MJ_MDL_READ,
+    IRP_MJ_MDL_READ_COMPLETE,
+    IRP_MJ_PREPARE_MDL_WRITE,
+    IRP_MJ_MDL_WRITE_COMPLETE,
+    IRP_MJ_VOLUME_MOUNT,
+    IRP_MJ_VOLUME_DISMOUNT,
+}
+
+impl Default for OperationType {
+    fn default() -> Self {
+        Self::OP_NOTHING
+    }
+}
+
+impl FromStr for OperationType {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        let res = match s {
+            "IRP_MJ_CREATE" => OperationType::IRP_MJ_CREATE,
+            "IRP_MJ_CREATE_NAMED_PIPE" => OperationType::IRP_MJ_CREATE_NAMED_PIPE,
+            "IRP_MJ_CLOSE" => OperationType::IRP_MJ_CLOSE,
+            "IRP_MJ_READ" => OperationType::IRP_MJ_READ,
+            "IRP_MJ_WRITE" => OperationType::IRP_MJ_WRITE,
+            "IRP_MJ_QUERY_INFORMATION" => OperationType::IRP_MJ_QUERY_INFORMATION,
+            "IRP_MJ_SET_INFORMATION" => OperationType::IRP_MJ_SET_INFORMATION,
+            "IRP_MJ_QUERY_EA" => OperationType::IRP_MJ_QUERY_EA,
+            "IRP_MJ_SET_EA" => OperationType::IRP_MJ_SET_EA,
+            "IRP_MJ_FLUSH_BUFFERS" => OperationType::IRP_MJ_FLUSH_BUFFERS,
+            "IRP_MJ_QUERY_VOLUME_INFORMATION" => OperationType::IRP_MJ_QUERY_VOLUME_INFORMATION,
+            "IRP_MJ_SET_VOLUME_INFORMATION" => OperationType::IRP_MJ_SET_VOLUME_INFORMATION,
+            "IRP_MJ_DIRECTORY_CONTROL" => OperationType::IRP_MJ_DIRECTORY_CONTROL,
+            "IRP_MJ_FILE_SYSTEM_CONTROL" => OperationType::IRP_MJ_FILE_SYSTEM_CONTROL,
+            "IRP_MJ_DEVICE_CONTROL" => OperationType::IRP_MJ_DEVICE_CONTROL,
+            "IRP_MJ_INTERNAL_DEVICE_CONTROL" => OperationType::IRP_MJ_INTERNAL_DEVICE_CONTROL,
+            "IRP_MJ_SHUTDOWN" => OperationType::IRP_MJ_SHUTDOWN,
+            "IRP_MJ_LOCK_CONTROL" => OperationType::IRP_MJ_LOCK_CONTROL,
+            "IRP_MJ_CLEANUP" => OperationType::IRP_MJ_CLEANUP,
+            "IRP_MJ_CREATE_MAILSLOT" => OperationType::IRP_MJ_CREATE_MAILSLOT,
+            "IRP_MJ_QUERY_SECURITY" => OperationType::IRP_MJ_QUERY_SECURITY,
+            "IRP_MJ_SET_SECURITY" => OperationType::IRP_MJ_SET_SECURITY,
+            "IRP_MJ_POWER" => OperationType::IRP_MJ_POWER,
+            "IRP_MJ_SYSTEM_CONTROL" => OperationType::IRP_MJ_SYSTEM_CONTROL,
+            "IRP_MJ_DEVICE_CHANGE" => OperationType::IRP_MJ_DEVICE_CHANGE,
+            "IRP_MJ_QUERY_QUOTA" => OperationType::IRP_MJ_QUERY_QUOTA,
+            "IRP_MJ_SET_QUOTA" => OperationType::IRP_MJ_SET_QUOTA,
+            "IRP_MJ_PNP" => OperationType::IRP_MJ_PNP,
+            "IRP_MJ_PNP_POWER" => OperationType::IRP_MJ_PNP_POWER,
+            "IRP_MJ_MAXIMUM_FUNCTION" => OperationType::IRP_MJ_MAXIMUM_FUNCTION,
+            "IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION" => OperationType::IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION,
+            "IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION" => OperationType::IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION,
+            "IRP_MJ_ACQUIRE_FOR_MOD_WRITE" => OperationType::IRP_MJ_ACQUIRE_FOR_MOD_WRITE,
+            "IRP_MJ_RELEASE_FOR_MOD_WRITE" => OperationType::IRP_MJ_RELEASE_FOR_MOD_WRITE,
+            "IRP_MJ_ACQUIRE_FOR_CC_FLUSH" => OperationType::IRP_MJ_ACQUIRE_FOR_CC_FLUSH,
+            "IRP_MJ_RELEASE_FOR_CC_FLUSH" => OperationType::IRP_MJ_RELEASE_FOR_CC_FLUSH,
+            "IRP_MJ_QUERY_OPEN" => OperationType::IRP_MJ_QUERY_OPEN,
+            "IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE" => OperationType::IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE,
+            "IRP_MJ_NETWORK_QUERY_OPEN" => OperationType::IRP_MJ_NETWORK_QUERY_OPEN,
+            "IRP_MJ_MDL_READ" => OperationType::IRP_MJ_MDL_READ,
+            "IRP_MJ_MDL_READ_COMPLETE" => OperationType::IRP_MJ_MDL_READ_COMPLETE,
+            "IRP_MJ_PREPARE_MDL_WRITE" => OperationType::IRP_MJ_PREPARE_MDL_WRITE,
+            "IRP_MJ_MDL_WRITE_COMPLETE" => OperationType::IRP_MJ_MDL_WRITE_COMPLETE,
+            "IRP_MJ_VOLUME_MOUNT" => OperationType::IRP_MJ_VOLUME_MOUNT,
+            "IRP_MJ_VOLUME_DISMOUNT" => OperationType::IRP_MJ_VOLUME_DISMOUNT,
+            _ => { return Err(()); }
+        };
+        return Ok(res);
+    }
+}
+
+impl OperationType {
+    pub fn from_u8(code: u8) -> Self {
+        let res = match code {
+            0 => OperationType::IRP_MJ_CREATE,
+            1 => OperationType::IRP_MJ_CREATE_NAMED_PIPE,
+            2 => OperationType::IRP_MJ_CLOSE,
+            3 => OperationType::IRP_MJ_READ,
+            4 => OperationType::IRP_MJ_WRITE,
+            5 => OperationType::IRP_MJ_QUERY_INFORMATION,
+            6 => OperationType::IRP_MJ_SET_INFORMATION,
+            7 => OperationType::IRP_MJ_QUERY_EA,
+            8 => OperationType::IRP_MJ_SET_EA,
+            9 => OperationType::IRP_MJ_FLUSH_BUFFERS,
+            10 => OperationType::IRP_MJ_QUERY_VOLUME_INFORMATION,
+            11 => OperationType::IRP_MJ_SET_VOLUME_INFORMATION,
+            12 => OperationType::IRP_MJ_DIRECTORY_CONTROL,
+            13 => OperationType::IRP_MJ_FILE_SYSTEM_CONTROL,
+            14 => OperationType::IRP_MJ_DEVICE_CONTROL,
+            15 => OperationType::IRP_MJ_INTERNAL_DEVICE_CONTROL,
+            16 => OperationType::IRP_MJ_SHUTDOWN,
+            17 => OperationType::IRP_MJ_LOCK_CONTROL,
+            18 => OperationType::IRP_MJ_CLEANUP,
+            19 => OperationType::IRP_MJ_CREATE_MAILSLOT,
+            20 => OperationType::IRP_MJ_QUERY_SECURITY,
+            21 => OperationType::IRP_MJ_SET_SECURITY,
+            22 => OperationType::IRP_MJ_POWER,
+            23 => OperationType::IRP_MJ_SYSTEM_CONTROL,
+            24 => OperationType::IRP_MJ_DEVICE_CHANGE,
+            25 => OperationType::IRP_MJ_QUERY_QUOTA,
+            26 => OperationType::IRP_MJ_SET_QUOTA,
+            27 => OperationType::IRP_MJ_PNP,
+            255 => OperationType::IRP_MJ_ACQUIRE_FOR_SECTION_SYNCHRONIZATION,
+            254 => OperationType::IRP_MJ_RELEASE_FOR_SECTION_SYNCHRONIZATION,
+            253 => OperationType::IRP_MJ_ACQUIRE_FOR_MOD_WRITE,
+            252 => OperationType::IRP_MJ_RELEASE_FOR_MOD_WRITE,
+            251 => OperationType::IRP_MJ_ACQUIRE_FOR_CC_FLUSH,
+            250 => OperationType::IRP_MJ_RELEASE_FOR_CC_FLUSH,
+            249 => OperationType::IRP_MJ_QUERY_OPEN,
+            248 => OperationType::IRP_MJ_FAST_IO_CHECK_IF_POSSIBLE,
+            247 => OperationType::IRP_MJ_NETWORK_QUERY_OPEN,
+            246 => OperationType::IRP_MJ_MDL_READ,
+            245 => OperationType::IRP_MJ_MDL_READ_COMPLETE,
+            244 => OperationType::IRP_MJ_PREPARE_MDL_WRITE,
+            243 => OperationType::IRP_MJ_MDL_WRITE_COMPLETE,
+            242 => OperationType::IRP_MJ_VOLUME_MOUNT,
+            241 => OperationType::IRP_MJ_VOLUME_DISMOUNT,
+            _ => OperationType::OP_NOTHING
+        };
+        return res;
+    }
+}
+
+#[allow(unused)]
+pub const PROC_BLACKLIST: [&str; 0] = [
+    // r"audiodg.exe",
+    // r"TrustedInstaller.exe",
+    // r"Registry",
+    // r"SearchProtocolHost.exe",
+    // r"SppExtComObj.Exe",
+    // r"services.exe",
+    // r"csrss.exe",
+    // r"WmiPrvSE.exe",
+    // r"\Device\HarddiskVolume2\Windows\WinSxS\amd64_microsoft-windows-servicingstack_31bf3856ad364e35_10.0.19041.1525_none_7e00daaa7c97a563\TiWorker.exe",
+    // r"sc.exe",
+    // r"smartscreen.exe",
+    // r"SearchIndexer.exe",
+    // r"lsass.exe",
+    // r"dllhost.exe",
+    // r"rundll32.exe",
+    // r"ctfmon.exe",
+    // r"slui.exe",
+    // r"explorer.exe",
+    // r"RuntimeBroker.exe",
+    // r"SearchFilterHost.exe",
+    // r"sihost.exe",
+    // r"svchost.exe",
+    // r"OneDrive.exe",
+    // r"sppsvc.exe",
+    // r"\Device\HarddiskVolume2\Windows\SystemApps\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy\StartMenuExperienceHost.exe",
+    // r"taskhostw.exe",
+    // r"CompatTelRunner.exe",
+    // r"MsMpEng.exe",
+    // r"backgroundTaskHost.exe",
+    // r"VBoxService.exe",
+    // r"WMIADAP.exe"
+];
+

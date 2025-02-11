@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WpaProfileContainer xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="2"
+  xmlns="http://tempuri.org/SerializableElement.xsd">
+  <Content xsi:type="WpaProfile2">
+    <Sessions>
+      <Session Index="0">
+        <FileReferences />
+      </Session>
+    </Sessions>
+    <Views>
+      <View Guid="f5757bfd-1bff-4c0c-a1e5-28a36c501fba" IsVisible="true" Title="Analysis">
+        <Graphs>
+          <Graph Guid="2adccbce-775d-4d71-bc88-df317d004293" LayoutStyle="DataTable" Color="#FFFF0000" GraphHeight="125" IsMinimized="false" IsShown="true" IsExpanded="false">
+            <Preset Name="test" GraphColumnCount="7" InitialFilterShouldKeep="true" GraphFilterColumnGuid="f8ec28d6-4a9b-5dbb-6471-b87580ff22ee" GraphFilterTopValue="0" GraphFilterThresholdValue="0">
+              <MetadataEntries>
+                <MetadataEntry Guid="3f8af5ba-d699-5218-2186-0407e5f57c1f" Name="Timestamp" ColumnMetadata="StartTime" />
+                <MetadataEntry Guid="29002589-2191-5735-af1d-e65e4fb95717" Name="CPU" ColumnMetadata="ResourceId" />
+              </MetadataEntries>
+              <HighlightEntries />
+              <Columns>
+                <Column Guid="0a76179f-f389-5324-add5-de98c4539b0a" Name="Counter" SortPriority="1" Width="100" IsVisible="true" />
+                <Column Guid="b128ef4c-434b-509b-bcac-a11e5a2412c2" Name="Process" SortPriority="2" Width="160" IsVisible="true" />
+                <Column Guid="c9ec93cf-1540-529c-28ab-804688503afe" Name="Module" SortPriority="4" Width="140" IsVisible="true" />
+                <Column Guid="df0368f2-2d8c-501e-307c-c0e6dbe00edb" Name="Function" SortPriority="5" Width="200" IsVisible="true" />
+                <Column Guid="3f8af5ba-d699-5218-2186-0407e5f57c1f" Name="Timestamp" SortPriority="6" TextAlignment="Right" Width="137" CellFormat="mN" IsVisible="true">
+                  <DateTimeTimestampOptionsParameter DateTimeEnabled="false" />
+                </Column>
+              </Columns>
+            </Preset>
+          </Graph>
+        </Graphs>
+        <SessionIndices>
+          <SessionIndex>0</SessionIndex>
+        </SessionIndices>
+      </View>
+    </Views>
+  </Content>
+</WpaProfileContainer>

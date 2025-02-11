@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WindowsPerformanceRecorder Version="1.0">
+<Profiles>
+    <SystemCollector Id="SystemCollector_PMC" Base="" Name="WPRSystemCollector">
+      <BufferSize Value="1024" /> 
+      <Buffers Value="512" />
+    </SystemCollector>
+    <SystemProvider Id="SystemProvider_ProcThreadForSamplingCounters" Base="">
+      <Keywords>
+        <Keyword Value="Loader"/>
+        <Keyword Value="ProcessThread"/>
+        <Keyword Value="PmcProfile" />
+      </Keywords>
+    </SystemProvider>
+    <HardwareCounter Id="HardwareCounters_SamplingCounters" Strict="true">
+        <SampledCounters>
+          <SampledCounter Value="BranchInstructionRetired" />
+          <SampledCounter Value="BranchMispredictsRetired"/>
+          <SampledCounter Value="LLCReference"/>
+          <SampledCounter Value="LLCMisses"/>
+          <SampledCounter Value="InstructionsRetiredFixed"/>
+        </SampledCounters>
+    </HardwareCounter>
+    <Profile Id="PMC.Verbose.File" Base="" LoggingMode="File" Name="PMC" DetailLevel="Verbose" Description="PMC Test">
+        <Collectors Operation="Add">
+            <SystemCollectorId Value="SystemCollector_PMC">
+                <SystemProviderId Value="SystemProvider_ProcThreadForSamplingCounters"></SystemProviderId>
+                <HardwareCounterId Value="HardwareCounters_SamplingCounters"></HardwareCounterId>
+            </SystemCollectorId>
+        </Collectors>
+    </Profile>
+</Profiles>
+</WindowsPerformanceRecorder>
